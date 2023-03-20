@@ -43,12 +43,51 @@ function initApp() {
 
 function showCharacter(image, name, house, gender, yearOfBirth) {
   console.log(image, name, house, gender, yearOfBirth);
+
+  //Stort forbogstav på køn
+  const genderCap =
+    gender.charAt(0).toUpperCase() +
+    gender.substring(1, gender.length).toLowerCase();
+  //Billede med relevante hus
+  let houseImgLink = "";
+  switch (house) {
+    case "Gryffindor":
+      houseImgLink =
+        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-gryffindor.png";
+      break;
+    case "Slytherin":
+      houseImgLink =
+        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-slytherin.png";
+      break;
+    case "Ravenclaw":
+      houseImgLink =
+        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+      break;
+    case "Hufflepuff":
+      houseImgLink =
+        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+      break;
+  }
+  // if (house === "Gryffindor") {
+  //   houseImgLink =
+  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-gryffindor.png";
+  // } else if (house === "Slytherin") {
+  //   houseImgLink =
+  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-slytherin.png";
+  // } else if (house === "Ravenclaw") {
+  //   houseImgLink =
+  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+  // } else if (house === "Hufflepuff") {
+  //   houseImgLink =
+  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+  // }
+
   const html = /*html*/ `
      <tr>
         <td><image src="${image}"></td>
         <td>${name}</td>
-        <td>${house}</td>
-        <td>${gender}</td>
+        <td><image src="${houseImgLink}"></td>
+        <td>${genderCap}</td>
         <td>${yearOfBirth}</td>
      </tr>
      `;
