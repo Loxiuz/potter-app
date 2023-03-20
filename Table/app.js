@@ -4,71 +4,69 @@
 window.addEventListener("load", initApp);
 
 function initApp() {
-  // Harry Potter
-  const potterName = "Harry Potter";
-  const potterGender = "male";
-  const potterHouse = "Gryffindor";
-  const potterDateOfBirth = "31-07-1980";
-  const potterAncestry = "half-blood";
-  const potterEyeColour = "green";
-  const potterHairColour = "black";
-  const potterActor = "Daniel Radcliffe";
-  const potterImage = "http://hp-api.herokuapp.com/images/harry.jpg";
-
   showCharacter(
-    potterImage,
-    potterName,
-    potterHouse,
-    potterDateOfBirth,
-    potterActor
+    "https://ik.imagekit.io/hpapi/harry.jpg",
+    "Harry Potter",
+    "Gryffindor",
+    "male",
+    "1980"
   );
   showCharacter(
-    "http://hp-api.herokuapp.com/images/ron.jpg",
+    "https://ik.imagekit.io/hpapi/ron.jpg",
     "Ron Weasley",
     "Gryffindor",
-    "01-03-1980",
-    "Rupert Grint"
+    "male",
+    "1980"
+  );
+  showCharacter(
+    "https://ik.imagekit.io/hpapi/hermione.jpeg",
+    "Hermione Granger",
+    "Gryffindor",
+    "female",
+    "1979"
+  );
+  showCharacter(
+    "https://ik.imagekit.io/hpapi/draco.jpg",
+    "Draco Malfoy",
+    "Slytherin",
+    "male",
+    "1980"
+  );
+  showCharacter(
+    "https://ik.imagekit.io/hpapi/mcgonagall.jpg",
+    "Minerva McGonagall",
+    "Gryffindor",
+    "female",
+    "1925"
   );
 }
 
-function showCharacter(image, name, house, dateOfBirth, actor) {
-  console.log(image, name, house, dateOfBirth, actor);
+function showCharacter(image, name, house, gender, yearOfBirth) {
+  console.log(image, name, house, gender, yearOfBirth);
   const html = /*html*/ `
-     <article>
-        <image src="${image}">
-        <h2>${name}</h2>
-        <p>House: ${house}</p>
-        <p>Date of birth: ${dateOfBirth}</p>
-        <p>Played by: ${actor}</p>
-     </article>
+     <tr>
+        <td><image src="${image}"></td>
+        <td>${name}</td>
+        <td>${house}</td>
+        <td>${gender}</td>
+        <td>${yearOfBirth}</td>
+     </tr>
      `;
 
-  document.querySelector("#characters").insertAdjacentHTML("beforeend", html);
+  document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
 }
 
-// function showCharacter(image, name, house, dateOfBirth, actor) {
-//   console.log(image, name, house, dateOfBirth, actor);
-
-//   const articleElement = document.createElement("article");
-//   const imageElement = document.createElement("image");
-//   const nameElement = document.createElement("h2");
-//   const houseElement = document.createElement("p");
-//   const dateOfBirthElement = document.createElement("p");
-//   const actorElement = document.createElement("p");
-
-//   imageElement.src = image;
-//   nameElement.textContent = name;
-//   houseElement.textContent = house;
-//   dateOfBirthElement.textContent = dateOfBirth;
-//   actorElement.textContent = actor;
-
-//   articleElement.append(
-//     imageElement,
-//     nameElement,
-//     houseElement,
-//     dateOfBirthElement,
-//     actorElement
-//   );
-
-//   document.querySelector("#characters").appendChild(articleElement);
-// }
+//           <tr>
+//             <td><img src="http://hp-api.herokuapp.com/images/harry.jpg" /></td>
+//             <td>Harry Potter</td>
+//             <td>Gryffindor</td>
+//             <td>male</td>
+//             <td>1980</td>
+//           </tr>
+//           <tr>
+//             <td><img src="http://hp-api.herokuapp.com/images/ron.jpg" /></td>
+//             <td>Ron Weasley</td>
+//             <td>Gryffindor</td>
+//             <td>male</td>
+//             <td>1980</td>
+//           </tr>
