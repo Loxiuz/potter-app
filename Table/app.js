@@ -50,37 +50,19 @@ function showCharacter(image, name, house, gender, yearOfBirth) {
     gender.substring(1, gender.length).toLowerCase();
   //Billede med relevante hus
   let houseImgLink = "";
-  switch (house) {
-    case "Gryffindor":
-      houseImgLink =
-        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-gryffindor.png";
-      break;
-    case "Slytherin":
-      houseImgLink =
-        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-slytherin.png";
-      break;
-    case "Ravenclaw":
-      houseImgLink =
-        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
-      break;
-    case "Hufflepuff":
-      houseImgLink =
-        "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
-      break;
+  if (house === "Gryffindor") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-gryffindor.png";
+  } else if (house === "Slytherin") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-slytherin.png";
+  } else if (house === "Ravenclaw") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+  } else if (house === "Hufflepuff") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
   }
-  // if (house === "Gryffindor") {
-  //   houseImgLink =
-  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-gryffindor.png";
-  // } else if (house === "Slytherin") {
-  //   houseImgLink =
-  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-slytherin.png";
-  // } else if (house === "Ravenclaw") {
-  //   houseImgLink =
-  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
-  // } else if (house === "Hufflepuff") {
-  //   houseImgLink =
-  //     "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
-  // }
 
   const html = /*html*/ `
      <tr>
@@ -94,18 +76,3 @@ function showCharacter(image, name, house, gender, yearOfBirth) {
 
   document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
 }
-
-//           <tr>
-//             <td><img src="http://hp-api.herokuapp.com/images/harry.jpg" /></td>
-//             <td>Harry Potter</td>
-//             <td>Gryffindor</td>
-//             <td>male</td>
-//             <td>1980</td>
-//           </tr>
-//           <tr>
-//             <td><img src="http://hp-api.herokuapp.com/images/ron.jpg" /></td>
-//             <td>Ron Weasley</td>
-//             <td>Gryffindor</td>
-//             <td>male</td>
-//             <td>1980</td>
-//           </tr>
