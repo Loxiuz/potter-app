@@ -134,11 +134,31 @@ function initApp() {
 }
 
 function showCharacter(character) {
+  //Stort forbogstav på køn
+  const gender = character.gender;
+  const genderCap =
+    gender.charAt(0).toUpperCase() +
+    gender.substring(1, gender.length).toLowerCase();
+  //Billede med relevante hus
+  let houseImgLink = "";
+  if (character.house === "Gryffindor") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-gryffindor.png";
+  } else if (character.house === "Slytherin") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-slytherin.png";
+  } else if (character.house === "Ravenclaw") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+  } else if (character.house === "Hufflepuff") {
+    houseImgLink =
+      "https://cederdorff.github.io/dat-js/05-data/peters-potter-app/images/housecrest-ravenclaw.png";
+  }
   const html = /*html*/ `
      <article>
       <h2>${character.name}</h2>
-      <p>Gender: ${character.gender}</p>
-      <p>House: ${character.house}</p>
+      <p>Gender: ${genderCap}</p>
+      <image src="${houseImgLink}">
       <p>Year of birth: ${character.yearOfBirth}</p>
       <image src="${character.image}">
      </article>
@@ -153,8 +173,8 @@ function showCharacter(character) {
     const dialogHtml = /* html */ `
       <h2>${character.name}</h2>
       <p>Species: ${character.species}</p>
-      <p>Gender: ${character.gender}</p>
-      <p></p>>House: ${character.house}</p>
+      <p>Gender: ${genderCap}</p>
+      <image src="${houseImgLink}">
       <p>Date of birth: ${character.dateOfBirth}</p>
       <p>Year of birth: ${character.yearOfBirth}</p>
       <p>Ancestry: ${character.ancestry}</p>
